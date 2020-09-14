@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface VehicleService {
     Vehicle update(Vehicle vehicle);
+    List<Vehicle> findAll();
 }

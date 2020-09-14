@@ -9,6 +9,8 @@ import org.example.Repository.VehicleRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -76,5 +78,16 @@ public class AlertServiceImplementation implements AlertService {
     @Override
     public Alert create(Alert alert) {
         return repository.save(alert);
+    }
+
+    @Override
+    public List<Alert> findHighAlerts() {
+        List<Alert> results = (List<Alert>)repository.findAll();
+        List<Alert> alerts = new ArrayList<>();
+        for(Alert result : results) {
+            if(result.getPriority().equals("high"))
+                alerts.add(result);
+        }
+        return alerts;
     }
 }
