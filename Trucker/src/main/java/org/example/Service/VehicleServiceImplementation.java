@@ -22,6 +22,7 @@ public class VehicleServiceImplementation implements VehicleService{
     }
 
     @Override
+    @Transactional
     public List<Vehicle> findAll() {
         return (List<Vehicle>)repository.findAll();
     }

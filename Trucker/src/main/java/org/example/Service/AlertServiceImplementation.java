@@ -32,6 +32,7 @@ public class AlertServiceImplementation implements AlertService {
             alert.setReadingId(reading.getId());
             alert.setVehicleId(vehicle.getVin());
             alert.setAlertMessage("Time to refuel the tank");
+            alert.setTimestamp(reading.getTimestamp());
             Alert savedAlert = create(alert);
         }
         if(reading.getTires().getFrontLeft() < 32 || reading.getTires().getFrontLeft() > 36 ||
@@ -44,6 +45,7 @@ public class AlertServiceImplementation implements AlertService {
             alert.setReadingId(reading.getId());
             alert.setVehicleId(vehicle.getVin());
             alert.setAlertMessage("Check the tire pressure");
+            alert.setTimestamp(reading.getTimestamp());
             Alert savedAlert = create(alert);
         }
         if(reading.isCheckEngineLightOn()) {
@@ -53,6 +55,7 @@ public class AlertServiceImplementation implements AlertService {
             alert.setReadingId(reading.getId());
             alert.setVehicleId(vehicle.getVin());
             alert.setAlertMessage("Your engine Light is ON");
+            alert.setTimestamp(reading.getTimestamp());
             Alert savedAlert = create(alert);
         }
         if(reading.getEngineRpm() > vehicle.getRedlineRpm()) {
@@ -62,6 +65,7 @@ public class AlertServiceImplementation implements AlertService {
             alert.setReadingId(reading.getId());
             alert.setVehicleId(vehicle.getVin());
             alert.setAlertMessage("There is a serious problem with the Engine RPM");
+            alert.setTimestamp(reading.getTimestamp());
             Alert savedAlert = create(alert);
         }
         if(reading.isEngineCoolantLow()) {
@@ -71,6 +75,7 @@ public class AlertServiceImplementation implements AlertService {
             alert.setReadingId(reading.getId());
             alert.setVehicleId(vehicle.getVin());
             alert.setAlertMessage("The Engine Coolant is Low");
+            alert.setTimestamp(reading.getTimestamp());
             Alert savedAlert = create(alert);
         }
     }

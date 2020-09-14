@@ -3,6 +3,7 @@ package org.example.Entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -16,9 +17,18 @@ public class Alert {
     private String readingId;
     private String vehicleId;
     private String alertMessage;
+    private Date timestamp;
 
     public Alert() {
         this.id = UUID.randomUUID().toString();
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getId() {
